@@ -108,16 +108,13 @@ LinkedListIterator<Type> LinkedList<Type>::end() {
 template <class Type>
 void LinkedList<Type>::copyList(const LinkedList<Type>& other) {
     Node<Type>* current;
-    Type* newType;
 
     destroyList();
     
     if (other.head != nullptr) {
         current = other.head;
         while (current != nullptr) {
-            newType = new Type;
-            *newType = *(current->data);
-            insertLast(newType);
+            insertLast(new Type(*(current->data)));
             current = current->next;
         }
     }

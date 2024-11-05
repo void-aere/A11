@@ -50,6 +50,7 @@ void UnorderedLinkedList<Type>::deleteNode(const Type& query) {
             head = head->next;
             --count;
             if (head == nullptr) tail = nullptr;
+            delete current->data;
             delete current;
         } else {
             found = false;
@@ -69,6 +70,7 @@ void UnorderedLinkedList<Type>::deleteNode(const Type& query) {
 
                 if (tail == current) tail = temp;
 
+                delete current->data;
                 delete current;
             }
         }

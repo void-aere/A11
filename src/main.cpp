@@ -7,12 +7,14 @@ int main() {
 
     std::cout << "Enter integers ending with -999" << std::endl;
 
+    int* intPtr;
     do {
         std::cin >> num;
-        int* intPtr = new int(num);
+        intPtr= new int(num);
         if (num == -999) break;
         list1.insertLast(intPtr);
     } while (num != -999);
+    delete intPtr;
 
     std::cout << "\nlist1: ";
     list1.print();
@@ -40,7 +42,7 @@ int main() {
     for (it = list1.begin(); it != ++(list1.end()); ++it) {
         std::cout << *it << " ";
     }
-    std::cout << std::endl;
+    std::cout << "\n\n";
 
     return 0;
 }
